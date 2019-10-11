@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using AishaSelenium_Task2.Utilities;
+using NUnit.Framework;
 using OpenQA.Selenium;
 
 namespace AishaSelenium_Task2.Page
@@ -21,6 +22,10 @@ namespace AishaSelenium_Task2.Page
             //PASSWORD
             IWebElement password = driver.FindElement(By.Id("Password"));
             password.SendKeys("123123");
+
+            //explicit wait
+            Async.WaitForWebElementClikable(driver, "//input[@value='Log in']", 1, "XPath");
+
             //LOGIN
             IWebElement login = driver.FindElement(By.XPath("//input[@value='Log in']"));
             login.Click();

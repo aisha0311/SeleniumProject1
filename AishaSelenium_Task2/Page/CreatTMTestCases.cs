@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using AishaSelenium_Task2.Utilities;
+using NUnit.Framework;
 using OpenQA.Selenium;
 
 namespace AishaSelenium_Task2
@@ -44,7 +45,10 @@ namespace AishaSelenium_Task2
 
             //SAVE
 
-            IWebElement saveButton = driver.FindElement(By.XPath("//input[contains(@id,'SaveButton')]"));
+            //Explicit wait
+            Async.WaitForWebElementVisibility(driver, "//input[contains(@id,'SaveButton')]", 2, "XPath");
+
+           var saveButton = driver.FindElement(By.XPath("//input[contains(@id,'SaveButton')]"));
            saveButton.Click();
 
         }
