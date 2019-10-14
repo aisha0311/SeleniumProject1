@@ -31,6 +31,10 @@ namespace AishaSelenium_Task2.Page
                 //TABLEROWS           
                 var tableRows = tableBody.FindElements(By.TagName("tr")).ToList();
 
+                if (tableRows.Count <= 0)
+                {
+                    return isFound;
+                }
                 //ROW (ITERATING EACH ROW)
                 foreach (var row in tableRows)
                 {

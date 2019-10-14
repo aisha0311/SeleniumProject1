@@ -2,19 +2,22 @@
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using System;
 using System.Threading;
+using TechTalk.SpecFlow;
 
-namespace AishaSelenium_Task2.Test
+namespace AishaSelenium_Task2.StepDefinition
 {
-    [TestFixture]
-    public class TimeAndMaterial
+    [Binding]
+    public class EditTimeAndMaterialSteps
     {
         IWebDriver driver;
-
-        [SetUp]
-        public void BeforeEachTest()
+        [Given(@"I have logged into Turn Up portal")]
+        public void GivenIHaveLoggedIntoTurnUpPortal()
         {
             driver = new ChromeDriver();
+
+
 
             driver.Navigate().GoToUrl("http://horse-dev.azurewebsites.net/Account/Login?ReturnUrl=%2f");
 
@@ -22,34 +25,22 @@ namespace AishaSelenium_Task2.Test
             LoginTestPage login = new LoginTestPage(driver); //creating an object of 'logintestcases'
             login.LoginPage();
         }
+        
 
-
-        [Test]
-        public void HomeTest()
+        [Given(@"I have navigated to TimeandMaterial page")]
+        public void GivenIHaveNavigatedToTimeandMaterialPage()
         {
             //home test cases           
             HomeTestPage home = new HomeTestPage(driver);
             home.HomeTestCases1();
             Thread.Sleep(2000);
         }
-
-        [Test]
-        public void CreatTest()
-        {
-            HomeTestPage home = new HomeTestPage(driver);
-            home.HomeTestCases1();
-            // creat new cases
-            CreatTMTestCases create = new CreatTMTestCases(driver);
-            create.CreateTimeAndMaterials();
-
-            Validations val = new Validations(driver);
-            bool isCreated = val.ValidateTimeMaterial("aisha shaik", false, false);
-            Assert.Equals(true, isCreated);
-
-        }
-
-        [Test]
-        public void EditTest()
+    
+    
+        
+        [When(@"I clicked on edit then it should edit the data")]
+        public void WhenIClickedOnEditThenItShouldEditTheData()
+        { 
         {
             HomeTestPage home = new HomeTestPage(driver);
             home.HomeTestCases1();
@@ -75,26 +66,17 @@ namespace AishaSelenium_Task2.Test
             }
         }
 
-         [Test]
-        public void DeleteTest()
-        {
-            HomeTestPage home = new HomeTestPage(driver);
-            home.HomeTestCases1();
-            // delete test cases
-            DeleteTestPage delete = new DeleteTestPage(driver);
-            delete.DeleteTimeAndMaterials();
-
-        }
-
-        //Console.Read();
-
-        [TearDown]
-        public void AfterEachTest()
-        {
-            driver.Quit();
-        }
-
     }
 
+    [Then(@"i should be able to save the Edited data")]
+        public void ThenIShouldBeAbleToSaveTheEditedData()
+        {
+
+        // EDITSAVE
+        IWebElement editSave = driver.FindElement(By.XPath("//input[contains(@id,'SaveButton')]"));
+        editSave.Click();
+
+         }
+}
 }
 

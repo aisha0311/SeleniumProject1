@@ -2,7 +2,7 @@
 using NUnit.Framework;
 using OpenQA.Selenium;
 
-namespace AishaSelenium_Task2
+namespace AishaSelenium_Task2.Page
 {
     internal class CreatTMTestCases //class
     {

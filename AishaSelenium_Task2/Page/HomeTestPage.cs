@@ -4,11 +4,11 @@ using OpenQA.Selenium;
 
 namespace AishaSelenium_Task2.Page
 {
-    internal class HomeTestCases //class
+    internal class HomeTestPage //class
     {
         private IWebDriver driver; //constructor
 
-        public HomeTestCases(IWebDriver driver) 
+        public HomeTestPage(IWebDriver driver) 
         {
             this.driver = driver;
         }

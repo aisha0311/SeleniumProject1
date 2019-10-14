@@ -4,11 +4,11 @@ using System;
 
 namespace AishaSelenium_Task2.Page
 {
-    internal class DeleteTestCases //class
+    internal class DeleteTestPage //class
     {
         private IWebDriver driver; //constructor
 
-        public DeleteTestCases(IWebDriver driver)
+        public DeleteTestPage(IWebDriver driver)
         {
             this.driver = driver;
         }
