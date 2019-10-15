@@ -38,6 +38,9 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ExcelDataReader, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.3.6.0\lib\net45\ExcelDataReader.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -50,6 +53,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
     <Reference Include="System.ValueTuple, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.3.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
     </Reference>
@@ -70,11 +74,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FeatureFiles\SpecFlowFeature1.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SpecFlowFeature1.feature</DependentUpon>
-    </Compile>
     <Compile Include="StepDefinition\DeleteTestCaseSteps.cs" />
     <Compile Include="FeatureFiles\DeleteTestCase.feature.cs">
       <AutoGen>True</AutoGen>
@@ -104,6 +103,7 @@
     <Compile Include="Page\Validations.cs" />
     <Compile Include="StepDefinition\CreateTestCaseSteps.cs" />
     <Compile Include="Utilities\Async.cs" />
+    <Compile Include="Utilities\ExcelLibHelpers.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -118,10 +118,6 @@
     <None Include="FeatureFiles\CreateTestCase.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>CreateTestCase.feature.cs</LastGenOutput>
-    </None>
-    <None Include="FeatureFiles\SpecFlowFeature1.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>SpecFlowFeature1.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
