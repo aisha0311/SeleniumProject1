@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\NUnit3TestAdapter.3.15.1\build\net35\NUnit3TestAdapter.props" Condition="Exists('..\packages\NUnit3TestAdapter.3.15.1\build\net35\NUnit3TestAdapter.props')" />
   <Import Project="..\packages\NUnit.3.12.0\build\NUnit.props" Condition="Exists('..\packages\NUnit.3.12.0\build\NUnit.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -41,6 +42,9 @@
     <Reference Include="ExcelDataReader, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
       <HintPath>..\packages\ExcelDataReader.3.6.0\lib\net45\ExcelDataReader.dll</HintPath>
     </Reference>
+    <Reference Include="ExcelDataReader.DataSet, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.DataSet.3.6.0\lib\net35\ExcelDataReader.DataSet.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -74,21 +78,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="StepDefinition\DeleteTestCaseSteps.cs" />
-    <Compile Include="FeatureFiles\DeleteTestCase.feature.cs">
+    <Compile Include="FeatureFiles\CreateTestCase.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DeleteTestCase.feature</DependentUpon>
+      <DependentUpon>CreateTestCase.feature</DependentUpon>
     </Compile>
     <Compile Include="FeatureFiles\EditTestCase.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>EditTestCase.feature</DependentUpon>
     </Compile>
-    <Compile Include="FeatureFiles\CreateTestCase.feature.cs">
+    <Compile Include="FeatureFiles\TestDeleteCase.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CreateTestCase.feature</DependentUpon>
+      <DependentUpon>TestDeleteCase.feature</DependentUpon>
     </Compile>
     <Compile Include="Page\CreatTMTestPage.cs" />
     <Compile Include="Page\DeleteTestPage.cs" />
@@ -97,7 +100,7 @@
     <Compile Include="Page\LoginTestPage.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="StepDefinition\EditTestCaseSteps.cs" />
-    <Compile Include="StepDefinition\SpecFlowFeature1Steps.cs" />
+    <Compile Include="StepDefinition\TestDeleteCaseSteps.cs" />
     <Compile Include="Test\TimeAndMaterial.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Page\Validations.cs" />
@@ -107,17 +110,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="FeatureFiles\DeleteTestCase.feature">
+    <None Include="FeatureFiles\CreateTestCase.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>DeleteTestCase.feature.cs</LastGenOutput>
+      <LastGenOutput>CreateTestCase.feature.cs</LastGenOutput>
     </None>
     <None Include="FeatureFiles\EditTestCase.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>EditTestCase.feature.cs</LastGenOutput>
     </None>
-    <None Include="FeatureFiles\CreateTestCase.feature">
+    <None Include="FeatureFiles\TestDeleteCase.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>CreateTestCase.feature.cs</LastGenOutput>
+      <LastGenOutput>TestDeleteCase.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
@@ -132,6 +135,7 @@
     <Error Condition="!Exists('..\packages\Selenium.Chrome.WebDriver.76.0.0\build\Selenium.Chrome.WebDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.Chrome.WebDriver.76.0.0\build\Selenium.Chrome.WebDriver.targets'))" />
     <Error Condition="!Exists('..\packages\SpecFlow.2.4.1\build\SpecFlow.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SpecFlow.2.4.1\build\SpecFlow.targets'))" />
     <Error Condition="!Exists('..\packages\NUnit.3.12.0\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit.3.12.0\build\NUnit.props'))" />
+    <Error Condition="!Exists('..\packages\NUnit3TestAdapter.3.15.1\build\net35\NUnit3TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit3TestAdapter.3.15.1\build\net35\NUnit3TestAdapter.props'))" />
   </Target>
   <Import Project="..\packages\Selenium.Chrome.WebDriver.76.0.0\build\Selenium.Chrome.WebDriver.targets" Condition="Exists('..\packages\Selenium.Chrome.WebDriver.76.0.0\build\Selenium.Chrome.WebDriver.targets')" />
   <Import Project="..\packages\SpecFlow.2.4.1\build\SpecFlow.targets" Condition="Exists('..\packages\SpecFlow.2.4.1\build\SpecFlow.targets')" />

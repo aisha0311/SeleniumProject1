@@ -34,7 +34,8 @@ namespace AishaSelenium_Task2.StepDefinition
             //home test cases           
             HomeTestPage home = new HomeTestPage(driver);
             home.HomeTestCases1();
-            Thread.Sleep(2000);
+          
+            
         }
 
         [Then(@"I should be able to create a material record successfully")]
@@ -48,7 +49,8 @@ namespace AishaSelenium_Task2.StepDefinition
 
             Validations val = new Validations(driver);
             bool isCreated = val.ValidateTimeMaterial("aisha shaik", false, false);
-            Assert.Equals(true, isCreated);
+            Assert.AreEqual(true, isCreated);
+            driver.Quit();
 
         }
     }

@@ -30,7 +30,8 @@ namespace AishaSelenium_Task2.Test
             //home test cases           
             HomeTestPage home = new HomeTestPage(driver);
             home.HomeTestCases1();
-            Thread.Sleep(2000);
+           
+
         }
 
         [Test]
@@ -44,7 +45,7 @@ namespace AishaSelenium_Task2.Test
 
             Validations val = new Validations(driver);
             bool isCreated = val.ValidateTimeMaterial("aisha shaik", false, false);
-            Assert.Equals(true, isCreated);
+            Assert.AreEqual(true, isCreated);
 
         }
 
@@ -66,7 +67,7 @@ namespace AishaSelenium_Task2.Test
 
                 bool isEdited = val.ValidateTimeMaterial("112233", false, false);
 
-                Assert.Equals(true, isEdited);
+                Assert.AreEqual(true, isEdited);
                 Assert.Pass("Successfully edited the row.");
             }
             else

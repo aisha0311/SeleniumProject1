@@ -29,6 +29,9 @@ namespace AishaSelenium_Task2.Page
             var timeMaterials = driver.FindElement(By.LinkText("Time & Materials"));
             timeMaterials.Click();
 
+            //explicit wait
+            Async.WaitForWebElementClikable(driver, "Time & Materials", 1, "LinkText");
+
         }
     }
 }

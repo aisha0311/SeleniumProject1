@@ -1,4 +1,5 @@
 ﻿using AishaSelenium_Task2.Page;
+using AishaSelenium_Task2.Utilities;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -9,41 +10,29 @@ using TechTalk.SpecFlow;
 namespace AishaSelenium_Task2.StepDefinition
 {
     [Binding]
-    public class EditTimeAndMaterialSteps
+    public class EditTestCaseSteps
     {
         IWebDriver driver;
-        [Given(@"I have logged into Turn Up portal")]
-        public void GivenIHaveLoggedIntoTurnUpPortal()
+        [Given(@"I have to login time and material portal and edit the values and click on edit button\.")]
+        public void GivenIHaveToLoginTimeAndMaterialPortalAndEditTheValuesAndClickOnEditButton_()
         {
             driver = new ChromeDriver();
-
-
 
             driver.Navigate().GoToUrl("http://horse-dev.azurewebsites.net/Account/Login?ReturnUrl=%2f");
 
             //login
             LoginTestPage login = new LoginTestPage(driver); //creating an object of 'logintestcases'
             login.LoginPage();
-        }
-        
 
-        [Given(@"I have navigated to TimeandMaterial page")]
-        public void GivenIHaveNavigatedToTimeandMaterialPage()
-        {
             //home test cases           
             HomeTestPage home = new HomeTestPage(driver);
             home.HomeTestCases1();
-            Thread.Sleep(2000);
         }
-    
-    
-        
-        [When(@"I clicked on edit then it should edit the data")]
-        public void WhenIClickedOnEditThenItShouldEditTheData()
-        { 
+            
+
+       [Then(@"the values should be edited\.")]
+        public void ThenTheValuesShouldBeEdited_()
         {
-            HomeTestPage home = new HomeTestPage(driver);
-            home.HomeTestCases1();
             //   edit test cases
             EditTestPage edit = new EditTestPage(driver);
 
@@ -57,26 +46,17 @@ namespace AishaSelenium_Task2.StepDefinition
 
                 bool isEdited = val.ValidateTimeMaterial("112233", false, false);
 
-                Assert.Equals(true, isEdited);
+                Assert.AreEqual(true, isEdited);
                 Assert.Pass("Successfully edited the row.");
             }
             else
             {
                 Assert.Fail($"Code {code} not found.");
             }
-        }
-
-    }
-
-    [Then(@"i should be able to save the Edited data")]
-        public void ThenIShouldBeAbleToSaveTheEditedData()
-        {
-
-        // EDITSAVE
+        
         IWebElement editSave = driver.FindElement(By.XPath("//input[contains(@id,'SaveButton')]"));
-        editSave.Click();
-
-         }
+            editSave.Click();
+            driver.Quit();
+        }
+    }
 }
-}
-

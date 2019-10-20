@@ -1,4 +1,5 @@
 ﻿using System.Threading;
+using AishaSelenium_Task2.Utilities;
 using NUnit.Framework;
 using OpenQA.Selenium;
 
@@ -27,15 +28,22 @@ namespace AishaSelenium_Task2.Page
             var editCodeTextbox = driver.FindElement(By.Id("Code"));
             editCodeTextbox.Clear();
             editCodeTextbox.SendKeys("112233");
-            Thread.Sleep(2000);
+            //Thread.Sleep(2000);
+            //Explicit Wait           
+            Async.WaitForWebElementVisibility(driver, "Code", 2, "Id");
+
 
             //EDITDESCTEXT
             var editDescTextbox = driver.FindElement(By.Id("Description"));
             editDescTextbox.Clear();
             editDescTextbox.SendKeys("edited test description");
-            Thread.Sleep(2000);
+            // Thread.Sleep(2000);
+            //Explicit Wait
+            //  Async.WaitForWebElement(driver);
+            Async.WaitForWebElementVisibility(driver, "Description", 2, "Id");
 
-            // EDITSAVE
+
+           // EDITSAVE
             IWebElement editSave = driver.FindElement(By.XPath("//input[contains(@id,'SaveButton')]"));
             editSave.Click();
 
