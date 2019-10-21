@@ -37,14 +37,14 @@ namespace AishaSelenium_Task2.StepDefinition
             EditTestPage edit = new EditTestPage(driver);
 
             Validations val = new Validations(driver);
-            string code = "aisha shaik";
+            string code = ExcelUtility.ReadData(2, "Validate"); //aisha shaik-validate
 
             bool isFound = val.ValidateTimeMaterial(code, true, false);
             if (isFound)
             {
                 edit.EditTimeAndMaterials();
 
-                bool isEdited = val.ValidateTimeMaterial("112233", false, false);
+                bool isEdited = val.ValidateTimeMaterial(ExcelUtility.ReadData(2, "editValidate"), false, false); //112233 = edit validate 
 
                 Assert.AreEqual(true, isEdited);
                 Assert.Pass("Successfully edited the row.");
@@ -54,6 +54,7 @@ namespace AishaSelenium_Task2.StepDefinition
                 Assert.Fail($"Code {code} not found.");
             }
         
+
         IWebElement editSave = driver.FindElement(By.XPath("//input[contains(@id,'SaveButton')]"));
             editSave.Click();
             driver.Quit();

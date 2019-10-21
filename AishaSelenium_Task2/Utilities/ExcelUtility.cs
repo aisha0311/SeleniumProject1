@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace AishaSelenium_Task2.Utilities
 {
-    class ExcelLibHelpers
+    class ExcelUtility
     {
         private static readonly List<Datacollection> DataCol = new List<Datacollection>();
         // The following code helps to quit the windows in which you only need to pass the name of excel.

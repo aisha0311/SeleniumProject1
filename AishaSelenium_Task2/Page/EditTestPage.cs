@@ -17,7 +17,7 @@ namespace AishaSelenium_Task2.Page
       
         public void EditTimeAndMaterials() //method
         {
-
+            ExcelUtility.PopulateInCollection(@"C:\Users\shaik\source\repos\AishaSelenium_Task2\AishaSelenium_Task2\TestData\project_inputs.xlsx", "data info");
             //EDIT
             // DROPDOWN
             IWebElement editdropdown = driver.FindElement(By.XPath("(//span[@unselectable='on'][contains(.,'select')])[4]"));
@@ -27,7 +27,7 @@ namespace AishaSelenium_Task2.Page
             // EDITCODETEXT
             var editCodeTextbox = driver.FindElement(By.Id("Code"));
             editCodeTextbox.Clear();
-            editCodeTextbox.SendKeys("112233");
+            editCodeTextbox.SendKeys(ExcelUtility.ReadData(2, "edit code text")); //edit code text=112233
             //Thread.Sleep(2000);
             //Explicit Wait           
             Async.WaitForWebElementVisibility(driver, "Code", 2, "Id");
@@ -36,7 +36,7 @@ namespace AishaSelenium_Task2.Page
             //EDITDESCTEXT
             var editDescTextbox = driver.FindElement(By.Id("Description"));
             editDescTextbox.Clear();
-            editDescTextbox.SendKeys("edited test description");
+            editDescTextbox.SendKeys(ExcelUtility.ReadData(2, "edit desc text")); //edit desc text = edited test description 
             // Thread.Sleep(2000);
             //Explicit Wait
             //  Async.WaitForWebElement(driver);

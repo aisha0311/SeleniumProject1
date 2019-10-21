@@ -1,4 +1,5 @@
 ﻿using AishaSelenium_Task2.Page;
+using AishaSelenium_Task2.Utilities;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -48,7 +49,7 @@ namespace AishaSelenium_Task2.StepDefinition
             create.CreateTimeAndMaterials();
 
             Validations val = new Validations(driver);
-            bool isCreated = val.ValidateTimeMaterial("aisha shaik", false, false);
+            bool isCreated = val.ValidateTimeMaterial(ExcelUtility.ReadData(2, "Validate"), false, false); //aisha shaik = validate
             Assert.AreEqual(true, isCreated);
             driver.Quit();
 

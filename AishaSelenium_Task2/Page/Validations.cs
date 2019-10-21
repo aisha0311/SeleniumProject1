@@ -22,7 +22,7 @@ namespace AishaSelenium_Task2.Page
             driver.FindElement(By.XPath("//a[@title='Go to the last page']")).Click();
             bool isFound = false;
             Thread.Sleep(4000);//wait
-
+            System.Console.WriteLine("validate delete");
             while (!isFound)
             {
                 // TABLEBODY           

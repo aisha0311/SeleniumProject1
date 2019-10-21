@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using AishaSelenium_Task2.Utilities;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using System;
 
@@ -16,19 +17,28 @@ namespace AishaSelenium_Task2.Page
        
         public void DeleteTimeAndMaterials() //method
         {
-            string code = "112233";
-            // find the row with this code and delete the row
+            ExcelUtility.PopulateInCollection(@"C:\Users\shaik\source\repos\AishaSelenium_Task2\AishaSelenium_Task2\TestData\project_inputs.xlsx", "data info");
 
-            Validations val = new Validations(driver);
+            if (true)
+                    { 
+                string code = ExcelUtility.ReadData(2, "delete"); //delete = 112233
+                Console.WriteLine("deleting");                                           // find the row with this code and delete the row
 
-            val.ValidateTimeMaterial("112233", false, true);
+                Validations val = new Validations(driver);
 
-            bool isFound = val.ValidateTimeMaterial("112233", false, false);
+                val.ValidateTimeMaterial(ExcelUtility.ReadData(2, "delete"), false, true); //delete = 112233
 
-            Assert.AreEqual(false, isFound);
+                bool isFound = val.ValidateTimeMaterial(ExcelUtility.ReadData(2, "delete"), false, false); //delete = 112233
+
+                Assert.AreEqual(false, isFound);
+            }
+            else
+            {
+
+            }
 
         
         }
-        //tst
+        
     }
 }

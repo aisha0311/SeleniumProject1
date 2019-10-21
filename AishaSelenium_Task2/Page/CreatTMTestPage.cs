@@ -17,6 +17,7 @@ namespace AishaSelenium_Task2.Page
   
         public void CreateTimeAndMaterials() //method
         {
+            ExcelUtility.PopulateInCollection(@"C:\Users\shaik\source\repos\AishaSelenium_Task2\AishaSelenium_Task2\TestData\project_inputs.xlsx", "data info");
             //CREATENEW
 
             var createNewButton = driver.FindElement(By.LinkText("Create New"));
@@ -31,17 +32,17 @@ namespace AishaSelenium_Task2.Page
             //CODETEXT
 
             var codeTextbox = driver.FindElement(By.Id("Code"));
-            codeTextbox.SendKeys("aisha shaik");
+            codeTextbox.SendKeys(ExcelUtility.ReadData(2, "code text")); //code text = aisha shaik
 
             //DESCTEXT
 
             var descTextbox = driver.FindElement(By.Id("Description"));
-            descTextbox.SendKeys("test description");
+            descTextbox.SendKeys(ExcelUtility.ReadData(2, "desc text")); //desc text = test description
 
             //PRICETEXT
 
             var pricePerUnit = driver.FindElement(By.XPath("//input[@class='k-formatted-value k-input']"));
-            pricePerUnit.SendKeys("100");
+            pricePerUnit.SendKeys(ExcelUtility.ReadData(2, "price text")); // price text=100
 
             //SAVE
 
