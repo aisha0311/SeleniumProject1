@@ -36,12 +36,12 @@ namespace AishaSelenium_Task2.Utilities
                 if (locator == "LinkText")
                 {
                     var Wait = new WebDriverWait(Driver, new TimeSpan(0, 0, seconds));
-                    Wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.ClassName(domvalue)));
+                    Wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.LinkText(domvalue)));
                 }
                 if (locator == "Name")
                 {
                     var Wait = new WebDriverWait(Driver, new TimeSpan(0, 0, seconds));
-                    Wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.ClassName(domvalue)));
+                    Wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.Name(domvalue)));
                 }
             }
             catch(Exception msg)
@@ -73,12 +73,12 @@ namespace AishaSelenium_Task2.Utilities
                 if (locator == "LinkText")
                 {
                     var Wait = new WebDriverWait(Driver, new TimeSpan(0, 0, seconds));
-                    Wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.ClassName(domvalue)));
+                    Wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.LinkText(domvalue)));
                 }
                 if (locator == "Name")
                 {
                     var Wait = new WebDriverWait(Driver, new TimeSpan(0, 0, seconds));
-                    Wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.ClassName(domvalue)));
+                    Wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.Name(domvalue)));
                 }
             }
             catch (Exception msg)
@@ -110,12 +110,12 @@ namespace AishaSelenium_Task2.Utilities
                 if (locator == "LinkText")
                 {
                     var Wait = new WebDriverWait(Driver, new TimeSpan(0, 0, seconds));
-                    Wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.ClassName(domvalue)));
+                    Wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.LinkText(domvalue)));
                 }
                 if (locator == "Name")
                 {
                     var Wait = new WebDriverWait(Driver, new TimeSpan(0, 0, seconds));
-                    Wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.ClassName(domvalue)));
+                    Wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.Name(domvalue)));
                 }
             }
             catch (Exception msg)
